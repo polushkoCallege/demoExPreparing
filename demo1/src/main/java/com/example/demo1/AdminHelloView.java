@@ -11,16 +11,19 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
-public class HelloController {
+public class AdminHelloView {
 
     @FXML
     private ResourceBundle resources;
 
     @FXML
     private URL location;
+
+    @FXML
+    private Text infoText;
 
     @FXML
     private TextField loginField;
@@ -33,26 +36,21 @@ public class HelloController {
 
     @FXML
     private Button registrationButton;
-    @FXML
-    private Text infoText;
-    @FXML
-    private Button toAdminButton;
 
     @FXML
     void initialize() throws SQLException {
-
-        DBUser dbUser = new DBUser(DBConnector.createConnection());
+        DBUser admin = new DBUser(DBConnector.createConnection());
 
 
 
         registrationButton.setOnAction(event -> {
             String login = loginField.getText();
             String password = passwordPasswordField.getText();
-            Boolean connectionDone = dbUser.authorisation(login, password);
+            Boolean connectionDone = admin.authorisation(login, password);
             if (connectionDone) {
 
                 FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("show-catalog.fxml"));
+                loader.setLocation(getClass().getResource("admin-panel.fxml"));
                 try {
                     loader.load();
                 } catch (IOException e) {
@@ -69,19 +67,10 @@ public class HelloController {
             }
         });
 
-        toAdminButton.setOnAction(event -> {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("admin-hello-view.fxml"));
-            try {
-                loader.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            Parent root = loader.getRoot();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.showAndWait();
-        });
+
 
     }
+
+
+
 }

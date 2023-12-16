@@ -1,10 +1,15 @@
 package com.example.demo1;
 
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.LinkedList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ScrollBar;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.AnchorPane;
+import java.util.LinkedList;
 
 public class ShowCatalogController {
 
@@ -15,22 +20,32 @@ public class ShowCatalogController {
     private URL location;
 
     @FXML
-    private Button buttonFromCart;
+    private Button addButton;
 
     @FXML
-    private Button buttonToCart;
+    private Button backButton;
+
+    @FXML
+    private AnchorPane cartScrollPane;
+
+    @FXML
+    private AnchorPane catalogScrollPane;
 
     @FXML
     private Button nextButton;
 
     @FXML
-    private ScrollBar scrollBarCart;
+    void initialize() throws SQLException {
 
-    @FXML
-    private ScrollBar scrollBarProducts;
+        DBProduct dbProduct = new DBProduct(DBConnector.createConnection());
+        LinkedList<String> dbProducts = dbProduct.getProductsDescription();
 
-    @FXML
-    void initialize() {
+        for (int product = 0; product < dbProducts.size(); product ++) {
+            catalogScrollPane.getChildren().add(new Label(dbProducts.get(product)));
+        }
+
+
+
 
 
     }

@@ -19,10 +19,16 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) throws SQLException {
-        launch();
-        DBConnector dbConnector = new DBConnector();
-        DBUser dbUser = new DBUser(dbConnector.createConnection());
+        //TODO create the administrative account button here(autorisation and adding products in admin fxml)
 
-        System.out.println("test");
+        DBUser dbUser = new DBUser(DBConnector.createConnection());
+        System.out.println(dbUser.authorisation("login", "password"));
+        System.out.println(1);
+        DBProduct dbProduct = new DBProduct(DBConnector.createConnection());
+        System.out.println(dbProduct.getProductsDescription());
+
+
+        launch();
+
     }
 }

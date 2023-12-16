@@ -5,15 +5,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Objects;
 
-public class DBUser {
+public class DBAdmin {
     private Statement dbStatement;
-    public DBUser(Statement dbStatement) {
+    public DBAdmin(Statement dbStatement) {
         this.dbStatement = dbStatement;
     }
 
     public Boolean authorisation(String login, String password){
         Boolean authorisationDone = false;
-        String queryText = "SELECT * FROM Client WHERE `ClientLogin` = '" + login + "' and `ClientPassword` = '" + password +"'";
+        String queryText = "SELECT * FROM Admin WHERE `AdminLogin` = '" + login + "' and `AdminPassword` = '" + password +"'";
         //String queryText = "SELECT * FROM Client WHERE `ClientLogin` = 'login' and `ClientPassword` = 'password'";
         try {
             ResultSet resultSet = dbStatement.executeQuery(queryText);

@@ -17,8 +17,8 @@
       <TextField fx:id="loginField" layoutX="226.0" layoutY="147.0" promptText="login" />
       <TextField fx:id="passwordTextField" layoutX="226.0" layoutY="200.0" promptText="password" />
       <PasswordField fx:id="passwordPasswordField" layoutX="226.0" layoutY="200.0" promptText="password" />
-      <Button fx:id="registrationButton" layoutX="226.0" layoutY="251.0" mnemonicParsing="false" text="Войти" />
-      <Button fx:id="showPasswordButton" layoutX="388.0" layoutY="200.0" mnemonicParsing="false" text="Show password" />
-      <Button fx:id="skipButton" layoutX="496.0" layoutY="361.0" mnemonicParsing="false" text="Пропустить" />
+      <Button fx:id="registrationButton" layoutX="275.0" layoutY="247.0" mnemonicParsing="false" text="Войти" />
+      <Text fx:id="infoText" fill="RED" layoutX="289.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Button fx:id="toAdminButton" layoutX="519.0" layoutY="353.0" mnemonicParsing="false" text="Админ" />
    </children>
 </Pane>

@@ -54,6 +54,8 @@ public class HelloController {
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("show-catalog.fxml"));
                 try {
+                    Stage stage = (Stage) registrationButton.getScene().getWindow();
+                    stage.close();
                     loader.load();
                 } catch (IOException e) {
                     throw new RuntimeException(e);
@@ -73,12 +75,15 @@ public class HelloController {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("admin-hello-view.fxml"));
             try {
+                Stage stage = (Stage) toAdminButton.getScene().getWindow();
+                stage.close();
                 loader.load();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
             Parent root = loader.getRoot();
             Stage stage = new Stage();
+
             stage.setScene(new Scene(root));
             stage.showAndWait();
         });

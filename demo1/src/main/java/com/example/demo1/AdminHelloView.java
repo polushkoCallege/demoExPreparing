@@ -52,6 +52,8 @@ public class AdminHelloView {
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("admin-panel.fxml"));
                 try {
+                    Stage stage = (Stage) registrationButton.getScene().getWindow();
+                    stage.close();
                     loader.load();
                 } catch (IOException e) {
                     throw new RuntimeException(e);

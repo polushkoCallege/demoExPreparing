@@ -14,6 +14,17 @@ public class DBProduct {
         this.dbStatement = dbStatement;
     }
 
+    public void addProduct(String query){
+        try {
+            dbStatement.executeUpdate(query);
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
     public LinkedList<String> getProductsDescription()  {
         String queryText = "SELECT ProductDescription FROM `Product`;";
         try {

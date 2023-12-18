@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -22,6 +23,7 @@
          </font>
       </Text>
       <ListView fx:id="catalogListView" layoutX="14.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
+      <AnchorPane fx:id="testAnchorPane" layoutX="270.0" layoutY="303.0" prefHeight="51.0" prefWidth="60.0" />
       <ListView fx:id="cartListView" layoutX="358.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </Pane>

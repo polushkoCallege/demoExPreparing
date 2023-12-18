@@ -43,6 +43,24 @@ public class DBProduct {
         }
     }
 
+    public LinkedList<String> getProductsPhoto()  {
+        String queryText = "SELECT ProductPhoto FROM `Product`;";
+        try {
+            Integer productsQuantity = getProductsQuantity();
+            LinkedList<String> productName = new LinkedList<>();
+            ResultSet resultSet = dbStatement.executeQuery(queryText);
+            resultSet.next();
+            while (productsQuantity >= 1) {
+                productName.add(resultSet.getString("ProductPhoto"));
+                resultSet.next();
+                productsQuantity -= 1;
+            }
+            return productName;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public Integer getProductsQuantity(){
         String query = "SHOW TABLE STATUS LIKE 'Product'; ";
         ResultSet resultSet = null;
